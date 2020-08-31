@@ -1,4 +1,4 @@
-# 문자열 다루기 기본 - 실패
+# 문자열 다루기 기본
 def solution(s) :
     try :
         if(int(s) > -1 and len(s) == 4 or len(s) == 6) : return True
