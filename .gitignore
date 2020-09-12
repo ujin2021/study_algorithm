@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,python,visualstudiocode,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,python,visualstudiocode,windows
-./codingTest
+./codingTest/
 ### Eclipse ###
 .metadata
 bin/
