@@ -20,26 +20,16 @@ def solution(str1, str2):
     union_score = 0 # 합집합(max)
     inter_score = 0 # 교집합(min)
 
-    # print(f'str1_list : {str1_list}, str2_list : {str2_list}, union : {union}, inter : {inter}')
     for i in union :
         union_score += max(str1_list.count(i), str2_list.count(i))
 
     for i in inter :
-        minimum = min(str1_list.count(i), str2_list.count(i))
-        if(minimum == 0) :
-            inter_score += 1
-        else :
-            inter_score += min(str1_list.count(i), str2_list.count(i))
+        inter_score += min(str1_list.count(i), str2_list.count(i))
 
     if(union_score == 0) :
         return 65536
 
     similarity = inter_score / union_score
     return int(similarity * 65536)
-
-print(solution('FRANCE', 'french'))
-print(solution('handshake', 'shake hands'))
-print(solution('aa1+aa2', 'AAAA12'))
-print(solution('E=M*C^2', 'e=m*c^2'))
     
     
