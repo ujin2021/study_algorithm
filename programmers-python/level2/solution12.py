@@ -25,3 +25,6 @@ def solution(w,h):
 print(solution(3, 5))
 print(solution(8, 12))
 print(solution(1, 4))
+
+# 최대공약수 풀이 관련 참고 : https://leedakyeong.tistory.com/135#comment16270807
+# 왜 최대공약수 만큼 반복되는가 => 원점을 지나는 그래프. 함수가 정수 값을 가지는 갯수
