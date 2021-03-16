@@ -1,6 +1,2 @@
-#### scpc 연습문제
-<br>
-
-#### programmers
-##### level1
-##### level2
+* 알고리즘 문제풀이(프로그래머스 등)
+* python
