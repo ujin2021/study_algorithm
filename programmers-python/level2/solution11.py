@@ -24,3 +24,18 @@ print(solution([12, 11, 10, 9, 8, 1]) == 5)
 print(solution([6, 6, 6, 6, 6, 1]), solution([6, 6, 6, 6, 6, 1]) == 5)
 print(solution([4, 4, 4]) == 3)
 print(solution([10, 9, 4, 1, 1]), solution([10, 9, 4, 1, 1]) == 3) 
+
+# 다른사람 풀이
+def solution2(citations):
+    citations = sorted(citations)
+    l = len(citations)
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
+    return 0
+
+# 다른사람 풀이
+def solution3(citations):
+    citations.sort(reverse=True)
+    answer = max(map(min, enumerate(citations, start=1)))
+    return answer
