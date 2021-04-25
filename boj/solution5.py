@@ -1,4 +1,4 @@
-# 1992 쿼드트리
+# [재귀] 1992 쿼드트리
 
 def quadTree(video, n) :
     result = []
