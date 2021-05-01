@@ -25,14 +25,14 @@ q = deque([x])
 # print('graph : ', graph)
 while q :
     now = q.popleft()
-    print(f'---now({now})---')
+    # print(f'---now({now})---')
     # 현재 도시에서 이동할 수 있는 모든 노드 확인
     for next_node in graph[now] :
         if(distance[next_node] == -1) :
             distance[next_node] = distance[now] + 1
             q.append(next_node)
-            print(f'q : {q}')
-            print(f'distance : {distance}')
+            # print(f'q : {q}')
+            # print(f'distance : {distance}')
 
 # 최단 거리가 k인 모든 도시의 번호를 오름차순으로 출력
 check = False
@@ -44,4 +44,3 @@ for i in range(1, n + 1) :
 # 최단거리가 k인 도시가 없다면
 if(check == False) :
     print(-1)
-
