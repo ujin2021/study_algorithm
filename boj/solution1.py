@@ -1,33 +1,32 @@
-# 1260 DFS와 BFS
-# https://velog.io/@i-zro/%ED%8C%8C%EC%9D%B4%EC%8D%ACPython-%EC%BD%94%ED%85%8C-%EB%8C%80%EB%B9%84-DFSBFS-%EB%B0%B1%EC%A4%80-1260%EB%B2%88-DFS%EC%99%80-BFS
+n, m, v = map(int, input().split())
+graph = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+visited_dfs = [0 for _ in range(n + 1)]
+visited_bfs = [0 for _ in range(n + 1)]
 
-N, M, V = map(int, input().split())
-matrix = [[0] * (N + 1) for _ in range(N + 1)]
-visited = [0] * (N + 1)
-# print(matrix)
-
-for _ in range(M) :
+for _ in range(m) :
     a, b = map(int, input().split())
-    matrix[a][b] = matrix[b][a] = 1
+    graph[a][b] = 1
+    graph[b][a] = 1 # 양방향 이라서
 
-def dfs(V) :
-    visited[V] = 1 # 방문한 노드는 1로
-    print(V, end = ' ')
-    for i in range(1, N + 1) :
-        if(visited[i] == 0 and matrix[V][i] == 1) :
-            dfs(i)
+from collections import deque
+def bfs(graph, visited, start) :
+    q = deque([start])
+    visited[start] = 1 # 1이 방문
+    while q :
+        now = q.popleft()
+        print(now, end = ' ')
+        for node in range(1, n + 1) :
+            if(graph[now][node] == 1 and visited[node] == 0) : # 방문하지 않았을 때
+                visited[node] = 1 # 방문했다고 표시
+                q.append(node) # 탐색해야 하므로 q에 넣어준다
 
-def bfs(V) :
-    queue = [V] # 거쳐야 할 중앙 노드
-    visited[V] = 0 # 방문한 노드는 0으로
-    while queue :
-        V = queue.pop(0)
-        print(V, end = ' ')
-        for i in range(1, N + 1) :
-            if(visited[i] == 1 and matrix[V][i] == 1) :
-                visited[i] = 0
-                queue.append(i)
+def dfs(graph, visited, start) :
+    print(start, end = ' ')
+    visited[start] = 1 # 방문했다고 표시
+    for node in range(1, n + 1) :
+       if(graph[start][node] == 1 and visited[node] == 0) : # 방문하지 않았으면
+           dfs(graph, visited, node)
 
-dfs(V)
+dfs(graph, visited_dfs, v)
 print()
-bfs(V)
+bfs(graph, visited_bfs, v)
