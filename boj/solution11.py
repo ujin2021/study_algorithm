@@ -1,4 +1,4 @@
-# [greedy] 1941 소문난 칠공주
+# 1941 소문난 칠공주
 import sys
 from itertools import combinations
 
